@@ -66,3 +66,51 @@ sudo apk add curl jq
 
 </details>
 
+# Installation
+
+Step 1: Clone the repository
+
+```bash
+git clone https://github.com/SubtleHero/SUID-Inspector.git
+```
+
+Step 2: Change into the project directory
+
+```bash
+cd SUID-Inspector
+```
+
+Step 3: Make the script executable
+
+```bash
+chmod +x SUID-Inspector.sh
+```
+
+# Usage
+
+Step 1: Enumerate SUID binaries on the target system
+
+```bash
+find / -perm -4000 -type f 2>/dev/null
+```
+or 
+```bash
+find / -perm -u=s -type f 2>/dev/null
+```
+
+Step 2: Copy and paste results into a file on host machine (I personally use gedit)
+
+```bash
+gedit SUID_Results.txt
+```
+
+Step 3: Run SUID-Inspector against the results
+
+```bash
+./SUID-Inspector.sh SUID_Results.txt
+```
+
+Output Example:
+
+![Alt text](Images/Output_Example.png)
+
